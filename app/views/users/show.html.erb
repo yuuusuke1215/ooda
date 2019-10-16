@@ -1,0 +1,20 @@
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img class="rounded-circle  card-img-top" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+      <div class="card-body">
+        <h5 class="card-title"><%= @user.name %></h5>
+        <p class="card-text"><%= @user.profile %></p>
+        <button type="button" class="btn btn-primary active mx-auto">プロフィールを編集する</button>
+      </div>
+    </div>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="#" class="nav-link">自分の投稿</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">お気に入り</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+    </ul>
+  </div>
+</div>
