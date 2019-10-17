@@ -5,7 +5,12 @@
       <div class="card-body">
         <h5 class="card-title"><%= @user.name %></h5>
         <p class="card-text"><%= @user.profile %></p>
-        <button type="button" class="btn btn-primary active mx-auto">プロフィールを編集する</button>
+        <% if current_user.id == @user.id %>
+          <li><%= link_to 'プロフィールを編集する', edit_user_path %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'フォローする', edit_user_path %></li>
+        <% end %>
       </div>
     </div>
   </aside>
