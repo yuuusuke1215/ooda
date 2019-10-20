@@ -1,0 +1,19 @@
+<ul class="list-unstyled">
+  <img class="mr-2 rounded" src="<%= gravatar_url(@oodapost.user, { size: 50 }) %>" alt="">
+  <%= @oodapost.user.name %>
+  <%= @oodapost.created_at %>
+  <h1><%= @oodapost.title %></h1>
+  <h2>Observe</h2>
+  <p><%= @oodapost.observe %></p>
+  <h2>Orient</h2>
+  <p><%= @oodapost.orient %></p>
+  <h2>Decide</h2>
+  <p><%= @oodapost.decide %></p>
+  <h2>Act</h2>
+  <p><%= @oodapost.act %></p>
+  <div>
+    <% if current_user == @oodapost.user %>
+      <%= link_to "Delete", @oodapost, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+  </div>
+</ul>
