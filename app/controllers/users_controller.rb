@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:followings, :followers]
+  
   def show
     @user = User.find(params[:id])
     @oodaposts = @user.oodaposts.order(id: :desc).page(params[:page])
@@ -38,6 +40,18 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'プロフィールを更新できませんでした。'
       render :edit
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page])
+    counts(@user)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
   end
   
   private
