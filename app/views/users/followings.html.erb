@@ -1,17 +1,21 @@
 <div class="row">
   <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
-      </div>
+    <div class="card" style="width: 18rem;">
+      <img class="rounded-circle  card-img-top" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       <div class="card-body">
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <h5 class="card-title"><%= @user.name %></h5>
+        <p class="card-text"><%= @user.profile %></p>
+        <% if current_user.id == @user.id %>
+          <li><%= link_to 'プロフィールを編集する', edit_user_path %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <% else %>
+          <%= render 'relationships/follow_button', user: @user %>
+        <% end %>
       </div>
     </div>
-    <%= render 'relationships/follow_button', user: @user %>
   </aside>
   <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
+    <ul class="nav nav-pills nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿  <span class="badge badge-secondary"><%= @count_microposts %></span></a></li>
       <li class="nav-item"><a href="#" class="nav-link">お気に入り</a></li>
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
