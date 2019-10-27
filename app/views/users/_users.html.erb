@@ -2,11 +2,11 @@
   <ul class="list-unstyled">
     <% users.each do |user| %>
       <li class="media">
-        <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
+        <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 70 }) %>" alt="">
         <div class="media-body">
           <div>
-            <%= user.name %>
             <p><%= link_to user.name, user_path(user) %></p>
+            <%= user.profile %>
           </div>
         </div>
       </li>

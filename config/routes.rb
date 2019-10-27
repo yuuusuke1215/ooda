@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :likes
     end
   end
   
   resources :oodaposts, only: [:show, :new, :create, :destroy, :edit, :update, :index]
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 end

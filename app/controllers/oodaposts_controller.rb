@@ -38,6 +38,12 @@ class OodapostsController < ApplicationController
     @oodaposts = current_user.oodaposts.order(id: :desc).page(params[:page])
   end
   
+  def likable
+    @oodapost = Oodapost.find(params[:id])
+    @likable = @oodapost.likable.page(params[:page])
+    favCounts(@oodapost)
+  end
+  
   private
 
   def oodapost_params

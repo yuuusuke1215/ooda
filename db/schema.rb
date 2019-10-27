@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_082759) do
+ActiveRecord::Schema.define(version: 2019_10_26_150606) do
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "oodapost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["oodapost_id"], name: "index_favorites_on_oodapost_id"
+    t.index ["user_id", "oodapost_id"], name: "index_favorites_on_user_id_and_oodapost_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "oodaposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "observe"
@@ -44,6 +54,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_082759) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "favorites", "oodaposts"
+  add_foreign_key "favorites", "users"
   add_foreign_key "oodaposts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

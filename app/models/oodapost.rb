@@ -6,4 +6,11 @@ class Oodapost < ApplicationRecord
   validates :decide, presence: true, length: { maximum: 700 }
   validates :act, presence: true, length: { maximum: 700 }
   validates :title, presence: true, length: { maximum: 255 }
+  
+  has_many :reverses_of_favorite, class_name: 'Favorite'
+  has_many :likable, through: :reverses_of_favorite, source: :user
+  
+  def favoritedPost?(favoritedUser)
+    self.likable.include?(favoritedUser)
+  end
 end

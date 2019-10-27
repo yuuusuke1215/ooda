@@ -26,6 +26,7 @@
         <p><%= @oodapost.act %></p>
         <br>
         <hr>
+        <%= render 'favorites/favorite_button', oodapost: @oodapost %>
         <li class="media mb-3">
           <img class="mr-2 rounded" src="<%= gravatar_url(@oodapost.user, { size: 70 }) %>" alt="">
           <div class="media-body">
