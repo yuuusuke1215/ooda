@@ -1,0 +1,18 @@
+<% @oodaposts.each do |oodapost| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <h2 class="post-title">
+            <%= link_to oodapost.title, oodapost_path(oodapost), :style=>"color:black;" %>
+          </h2>
+          <h3 class="post-subtitle">
+            <%= oodapost.observe[0..10] + "..." %>
+          </h3>
+          <%= link_to oodapost.user.name, user_path(oodapost.user) %> <span class="text-muted">posted at <%= oodapost.created_at %></span>
+       </div>
+       <hr>
+     </div>
+    </div>
+  </div>
+<% end %>

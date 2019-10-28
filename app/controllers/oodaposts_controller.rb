@@ -36,12 +36,19 @@ class OodapostsController < ApplicationController
   
   def index
     @oodaposts = current_user.oodaposts.order(id: :desc).page(params[:page])
+    
+    @q = Oodapost.ransack(params[:q])
+    @search_oodaposts = @q.result(distinct: true)
   end
   
   def likable
     @oodapost = Oodapost.find(params[:id])
     @likable = @oodapost.likable.page(params[:page])
     favCounts(@oodapost)
+  end
+  
+  def search
+    @oodaposts = Oodapost.search(params[:search])
   end
   
   private

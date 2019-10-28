@@ -13,4 +13,9 @@ class Oodapost < ApplicationRecord
   def favoritedPost?(favoritedUser)
     self.likable.include?(favoritedUser)
   end
+  
+  def self.search(search)
+    return Oodapost.all unless search
+    Oodapost.where(['title LIKE ?', "%#{search}%"])
+  end
 end

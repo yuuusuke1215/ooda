@@ -7,10 +7,10 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
-          <button type="submit" class="btn btn-outline-light my-2 my-sm-0">検索</button>
-        </form>
+        <%= form_tag(search_oodaposts_path, :method => "get") do %>
+         <%= text_field_tag :search %> 
+         <%= submit_tag "Search" ,:title => nil ,class: "button is-info"%> 
+        <% end %>
         <li class="nav-item"><%= link_to '投稿する', new_oodapost_path, class: 'nav-link' %></li>
         <% if logged_in? %>
           <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %></li>

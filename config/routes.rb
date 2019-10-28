@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :oodaposts, only: [:show, :new, :create, :destroy, :edit, :update, :index]
+  resources :oodaposts, only: [:show, :new, :create, :destroy, :edit, :update, :index] do
+    collection do
+      get :search
+    end 
+  end
+      
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end
