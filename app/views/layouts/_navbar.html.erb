@@ -25,7 +25,7 @@
   <div class="nav-list">
     <ul>
       <li class=”current”><a href=”#”>ホーム</a></li>
-      <li><a href=”#”>ニュース</a></li>
+      <li><%= link_to 'ニュース', user_path(current_user), class: 'nav-link' %></li>
       <li><a href=”#”>人生</a></li>
       <li><a href=”#”>仕事</a></li>
       <li><a href=”#”>その他</a></li>

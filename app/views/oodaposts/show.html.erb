@@ -8,6 +8,9 @@
         
         <hr class="blog-title-border">
         <br>
+        <div class="article-image">
+          <%= image_tag @oodapost.image.url, id: "pic1", class: "image", width: "300px" if @oodapost.image? %>
+        </div>
         <h3 class="mb-4 article-title">観察(Observe)</h3>
         <p><%= @oodapost.observe %></p>
         <br>

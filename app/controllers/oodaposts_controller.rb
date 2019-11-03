@@ -57,7 +57,7 @@ class OodapostsController < ApplicationController
   private
 
   def oodapost_params
-    params.require(:oodapost).permit(:observe, :orient, :decide, :act, :title)
+    params.require(:oodapost).permit(:observe, :orient, :decide, :act, :title, :image)
   end
   
   def correct_user

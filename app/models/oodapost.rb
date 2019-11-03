@@ -1,6 +1,8 @@
 class Oodapost < ApplicationRecord
   belongs_to :user
   
+  mount_uploader :image, ImageUploader
+  
   validates :observe, presence: true, length: { maximum: 700 }
   validates :orient, presence: true, length: { maximum: 700 }
   validates :decide, presence: true, length: { maximum: 700 }
