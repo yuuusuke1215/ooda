@@ -7,7 +7,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
     
-  has_many :oodaposts
+  has_many :oodaposts, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -15,6 +15,8 @@ class User < ApplicationRecord
   
   has_many :favorites, dependent: :destroy
   has_many :likes, through: :favorites, source: :oodapost
+  
+  has_many :comments
     
   def follow(other_user)
     unless self == other_user
@@ -42,5 +44,9 @@ class User < ApplicationRecord
   
   def favoritePost?(postFavorite)
     self.likes.include?(postFavorite)
+  end
+  
+  def feed_oodaposts
+    Oodapost.where(user_id: self.following_ids + [self.id])
   end
 end

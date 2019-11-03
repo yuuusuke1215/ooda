@@ -1,5 +1,5 @@
 <header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info">
     <a class="navbar-brand" href="/">OODA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
@@ -7,10 +7,11 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <%= form_tag(search_oodaposts_path, :method => "get") do %>
-         <%= text_field_tag :search %> 
-         <%= submit_tag "Search" ,:title => nil ,class: "button is-info"%> 
-        <% end %>
+        <li class="nav-item">
+          <form id="form5" class="search_container" action="/oodaposts/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="text" name="search" id="search" value="" class="sbox1"> 
+          </form>
+        </li>
         <li class="nav-item"><%= link_to '投稿する', new_oodapost_path, class: 'nav-link' %></li>
         <% if logged_in? %>
           <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %></li>
@@ -20,4 +21,15 @@
       </ul>
     </div>
   </nav>
+  <img class="nav-img" src="/macbook-336704_1920.jpg" alt="">
+  <div class="nav-list">
+    <ul>
+      <li class=”current”><a href=”#”>ホーム</a></li>
+      <li><a href=”#”>ニュース</a></li>
+      <li><a href=”#”>人生</a></li>
+      <li><a href=”#”>仕事</a></li>
+      <li><a href=”#”>その他</a></li>
+    </ul>
+    <hr>
+  </div>
 </header>

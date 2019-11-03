@@ -4,6 +4,8 @@ class OodapostsController < ApplicationController
   
   def show
     @oodapost = Oodapost.find(params[:id])
+    @comments = @oodapost.comments
+    @comment = Comment.new
   end
 
   def new
@@ -36,6 +38,7 @@ class OodapostsController < ApplicationController
   
   def index
     @oodaposts = current_user.oodaposts.order(id: :desc).page(params[:page])
+    @timeline_oodaposts = current_user.feed_oodaposts.order(id: :desc).page(params[:page])
     
     @q = Oodapost.ransack(params[:q])
     @search_oodaposts = @q.result(distinct: true)

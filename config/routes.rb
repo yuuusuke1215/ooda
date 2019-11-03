@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   
   resources :oodaposts, only: [:show, :new, :create, :destroy, :edit, :update, :index] do
+    resources :comments
     collection do
       get :search
     end 

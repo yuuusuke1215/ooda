@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-sm-6 offset-sm-3 mt-5">
 
     <%= form_with(model: @oodapost, local: true) do |f| %>
     
       <div class="form-group">
-        <%= f.label :title, 'テーマ' %>
+        <%= f.label :title, 'テーマ'  %>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
       
@@ -28,7 +28,7 @@
         <%= f.text_area :act, class: 'form-control' %>
       </div>
 
-      <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '投稿する', class: 'btn btn-primary btn-block mb-5' %>
     <% end %>
   </div>
 </div>

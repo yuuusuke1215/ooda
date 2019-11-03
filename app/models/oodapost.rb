@@ -10,6 +10,8 @@ class Oodapost < ApplicationRecord
   has_many :reverses_of_favorite, class_name: 'Favorite'
   has_many :likable, through: :reverses_of_favorite, source: :user
   
+  has_many :comments
+  
   def favoritedPost?(favoritedUser)
     self.likable.include?(favoritedUser)
   end
