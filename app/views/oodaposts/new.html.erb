@@ -10,30 +10,31 @@
       
       <div class="form-group">
         <%= f.label :observe, '観察(Observe)' %>
-        <%= f.text_area :observe, class: 'form-control' %>
+        <%= f.text_area :observe, size: "20x10", class: 'form-control textarea' %>
       </div>
 
       <div class="form-group">
         <%= f.label :orient, '仮説構築(Orient)' %>
-        <%= f.text_area :orient, class: 'form-control' %>
+        <%= f.text_area :orient, size: "20x10", class: 'form-control textarea' %>
       </div>
 
       <div class="form-group">
         <%= f.label :decide, '意思決定(Decide)' %>
-        <%= f.text_area :decide, class: 'form-control' %>
+        <%= f.text_area :decide, size: "20x10", class: 'form-control textarea' %>
       </div>
 
       <div class="form-group">
         <%= f.label :act, '実行(Act)' %>
-        <%= f.text_area :act, class: 'form-control' %>
+        <%= f.text_area :act, size: "20x10", class: 'form-control textarea' %>
       </div>
       
       <div class="custom-file mb-5">
-        <%= f.label :image, '画像' %><br />
+        <%= f.label :image, 'サムネイル画像' %><br />
         <%= f.file_field :image, class: "image" %>
       </div>
-
-      <%= f.submit '投稿する', class: 'btn btn-primary btn-block mb-5' %>
+      <div class="output-article-button">
+        <%= f.submit '投稿する', class: 'btn-gradient-radius mb-5' %>
+      </div>
     <% end %>
   </div>
 </div>

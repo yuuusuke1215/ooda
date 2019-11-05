@@ -9,28 +9,33 @@
         <hr class="blog-title-border">
         <br>
         <div class="article-image">
-          <%= image_tag @oodapost.image.url, id: "pic1", class: "image", width: "300px" if @oodapost.image? %>
+          <%= image_tag @oodapost.image.url, id: "pic1", class: "image mb-5", width: "400px" if @oodapost.image? %>
         </div>
         <h3 class="mb-4 article-title">観察(Observe)</h3>
         <p><%= @oodapost.observe %></p>
         <br>
-        <hr>
+        
         <br>
         <h3 class="mb-4 article-title">仮説構築(Orient)</h3>
         <p><%= @oodapost.orient %></p>
         <br>
-        <hr>
+        
         <br>
         <h3 class="mb-4 article-title">意思決定(Decide)</h3>
         <p><%= @oodapost.decide %></p>
         <br>
-        <hr>
+        
         <br>
         <h3 class="mb-4 article-title">実行(Act)</h3>
         <p><%= @oodapost.act %></p>
         <br>
         <hr>
-        <%= render 'favorites/favorite_button', oodapost: @oodapost %>
+        <div class="blog-button">
+          <%= render 'favorites/favorite_button', oodapost: @oodapost %>
+          <% if current_user.id == @oodapost.user.id %>
+            <%= link_to "記事を削除する", @oodapost, method: :delete, data: { confirm: "本当に削除してもよいですか?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
         <hr>
         <li class="media mb-3">
           <div class="profile-box col-12">
@@ -58,7 +63,7 @@
         <div class="comment-position">
           <div class="form-group">
             <%= form_for [@oodapost, @comment] do |f| %>
-            <%= f.text_area :content %>
+            <%= f.text_area :content, size: "20x10", class: 'form-control textarea' %>
           <br>
             <%= f.submit 'コメントする', class: "mb-5 btn-gradient-radius" %>
           <% end %>

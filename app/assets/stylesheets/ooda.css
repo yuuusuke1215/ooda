@@ -99,10 +99,8 @@ p {
   border-radius: 10px;/*角の丸み*/
 }
 
-textarea {
-  width: 450px;
-  height: 7em;
-  line-height: 1.5em;
+.textarea {
+  resize: none;
 }
 
 .btn-gradient-radius {
@@ -171,5 +169,48 @@ textarea {
 }
 
 .article-image {
+  text-align: center;
+}
+
+.main-title {
+  padding-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: inherit;
+}
+
+.posts, .posts-item {
+  width: 100%;
+  padding: 15px 5px;
+  
+}
+
+.posts-item {
+  display: flex;
+}
+
+.post-item-side {
+  float: left;
+}
+
+.post-list {
+  
+}
+
+.post-item-image-settings {
+  border-radius: 4px;
+}
+
+.blog-button {
+  display: flex;
+}
+
+.favorite-button {
+  margin-right: 10px;
+}
+
+.output-article-button {
   text-align: center;
 }

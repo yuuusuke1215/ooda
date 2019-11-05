@@ -6,8 +6,8 @@
         <h5 class="card-title"><%= @user.name %></h5>
         <p class="card-text"><%= @user.profile %></p>
         <% if current_user.id == @user.id %>
-          <li><%= link_to 'プロフィールを編集する', edit_user_path %></li>
-          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+          <%= link_to 'プロフィールを編集する', edit_user_path, class: "btn btn-primary" %>
+          <%= link_to 'ログアウト', logout_path, method: :delete, class: "btn btn-primary mt-2" %>
         <% else %>
           <%= render 'relationships/follow_button', user: @user %>
         <% end %>

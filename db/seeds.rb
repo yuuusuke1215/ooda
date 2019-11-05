@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Oodapost.create(title: "北朝鮮問題について", observe: "ああああああ", orient: "あああああ", decide: "あああああ", act: "あああああ", user_id: 2, image: "macbook-336704_1920.jpg")

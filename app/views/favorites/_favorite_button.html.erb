@@ -2,7 +2,7 @@
   <div class="button_wrapper">
     <%= form_with(model: current_user.favorites.find_by(oodapost_id: oodapost.id), local: true, method: :delete) do |f| %>
       <%= hidden_field_tag :oodapost_id, oodapost.id %>
-      <%= f.submit 'お気に入りから外す', class: 'btn btn-danger btn-sm' %>
+      <%= f.submit 'お気に入りから外す', class: 'btn btn-danger btn-sm favorite-button' %>
     <% end %>
   </div>
 <% else %>
