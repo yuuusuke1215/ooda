@@ -28,6 +28,10 @@
         <%= f.label :profile, 'プロフィール' %>
         <%= f.text_area :profile, size: "20x10", class: 'form-control' %>
       </div>
+      
+      <div class="image-change">
+        <a href="https://ja.gravatar.com/" class="btn btn-primary" target="_blank do">ユーザー画像を変更する</a>
+      </div>
 
       <%= f.submit '登録する', class: 'btn btn-primary btn-lg mx-auto d-block active mb-5' %>
     <% end %>

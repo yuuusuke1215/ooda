@@ -1,2 +1,40 @@
-<h1>Oodaposts#edit</h1>
-<p>Find me in app/views/oodaposts/edit.html.erb</p>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 mt-5">
+
+    <%= form_with(model: @oodapost, local: true) do |f| %>
+    
+      <div class="form-group">
+        <%= f.label :title, 'テーマ'  %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :observe, '観察(Observe)' %>
+        <%= f.text_area :observe, size: "20x10", class: 'form-control textarea' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :orient, '仮説構築(Orient)' %>
+        <%= f.text_area :orient, size: "20x10", class: 'form-control textarea' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :decide, '意思決定(Decide)' %>
+        <%= f.text_area :decide, size: "20x10", class: 'form-control textarea' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :act, '実行(Act)' %>
+        <%= f.text_area :act, size: "20x10", class: 'form-control textarea' %>
+      </div>
+      
+      <div class="custom-file mb-5">
+        <%= f.label :image, 'サムネイル画像' %><br />
+        <%= f.file_field :image, class: "image" %>
+      </div>
+      <div class="output-article-button">
+        <%= f.submit '更新する', class: 'btn-gradient-radius mb-5' %>
+      </div>
+    <% end %>
+  </div>
+</div>

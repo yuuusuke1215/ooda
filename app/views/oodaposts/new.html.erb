@@ -5,27 +5,27 @@
     
       <div class="form-group">
         <%= f.label :title, 'テーマ'  %>
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "テーマを決めよう！" %>
       </div>
       
       <div class="form-group">
         <%= f.label :observe, '観察(Observe)' %>
-        <%= f.text_area :observe, size: "20x10", class: 'form-control textarea' %>
+        <%= f.text_area :observe, size: "20x10", class: 'form-control textarea', placeholder: "自分や相手の感情や置かれている状況、市場の動向等の事実を幅広く集めよう！" %>
       </div>
 
       <div class="form-group">
         <%= f.label :orient, '仮説構築(Orient)' %>
-        <%= f.text_area :orient, size: "20x10", class: 'form-control textarea' %>
+        <%= f.text_area :orient, size: "20x10", class: 'form-control textarea', placeholder: "観察によって手に入れたデータを統合して分析し、仮説を構築しよう！" %>
       </div>
 
       <div class="form-group">
         <%= f.label :decide, '意思決定(Decide)' %>
-        <%= f.text_area :decide, size: "20x10", class: 'form-control textarea' %>
+        <%= f.text_area :decide, size: "20x10", class: 'form-control textarea', placeholder: "自分の理想と行動の選択肢を照らし合わせて、効果的だと思えるものを決めよう！" %>
       </div>
 
       <div class="form-group">
         <%= f.label :act, '実行(Act)' %>
-        <%= f.text_area :act, size: "20x10", class: 'form-control textarea' %>
+        <%= f.text_area :act, size: "20x10", class: 'form-control textarea', placeholder: "意思決定のステップで決めた行動を実践しよう！" %>
       </div>
       
       <div class="custom-file mb-5">

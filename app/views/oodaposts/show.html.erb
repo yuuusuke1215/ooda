@@ -31,41 +31,52 @@
         <br>
         <hr>
         <div class="blog-button">
-          <%= render 'favorites/favorite_button', oodapost: @oodapost %>
-          <% if current_user.id == @oodapost.user.id %>
-            <%= link_to "記事を削除する", @oodapost, method: :delete, data: { confirm: "本当に削除してもよいですか?" }, class: 'btn btn-danger btn-sm' %>
+          <% if logged_in? %>
+            <%= render 'favorites/favorite_button', oodapost: @oodapost %>
+            <% if current_user.id == @oodapost.user.id %>
+              <%= link_to "記事を削除する", @oodapost, method: :delete, data: { confirm: "本当に削除してもよいですか?" }, class: 'btn btn-danger btn-sm' %>
+              <%= link_to '記事を編集する', edit_oodapost_path, class: "btn btn-primary ml-2 btn-sm" %>
+            <% end %>
           <% end %>
         </div>
         <hr>
         <li class="media mb-3">
-          <div class="profile-box col-12">
-            <img class="mr-2 rounded" src="<%= gravatar_url(@oodapost.user, { size: 70 }) %>" alt="">
-            <div class="media-body">
-              <div>
-                <p><%= link_to @oodapost.user.name, user_path(@oodapost.user) %></p>
-              </div>
-              <div>
-                <p><%= @oodapost.user.profile %></p>
+          <div class="comment">
+            <div class="comment-left">
+              <img class="mr-2 rounded" src="<%= gravatar_url(@oodapost.user, { width: 90, height: 90 }) %>" alt="">
+            </div>
+            <div class="comment-right">
+              <p class="comment-name"><%= link_to @oodapost.user.name, user_path(@oodapost.user) %></p>
+              <p class="comment-text"><%= @oodapost.user.profile %></p>
+              <% if logged_in? %>
                 <% unless current_user.id == @oodapost.user.id %>
                   <%= render 'relationships/follow_button', user: @oodapost.user %>
                 <% end %>
-              </div>
+              <% end %>
+              <br>
             </div>
           </div>
         </li>
         <h3 class="mb-5 article-title"><i class="far fa-comment"></i> コメント一覧</h3>
         <% @comments.each do |c| %>
-          <div>
-            <%= c.content %>
-            <hr>
+          <div class="comment">
+            <div class="comment-left">
+              <img class="mr-2 rounded" src="<%= gravatar_url(@oodapost.user, { width: 90, height: 90 }) %>" alt="">
+            </div>
+            <div class="comment-right">
+              <p class="comment-name"><%= link_to @oodapost.user.name, user_path(@oodapost.user) %></p>
+              <p class="comment-text"><%= c.content %></p>
+              <br>
+            </div>
           </div>
         <% end %>
+        <br>
         <div class="comment-position">
           <div class="form-group">
             <%= form_for [@oodapost, @comment] do |f| %>
             <%= f.text_area :content, size: "20x10", class: 'form-control textarea' %>
           <br>
-            <%= f.submit 'コメントする', class: "mb-5 btn-gradient-radius" %>
+            <%= f.submit 'コメントする（ユーザー登録が必要です）', class: "mb-5 btn-gradient-radius" %>
           <% end %>
           </div>
         </div>

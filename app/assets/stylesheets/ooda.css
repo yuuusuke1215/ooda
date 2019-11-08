@@ -89,14 +89,13 @@ p {
   text-align: center;
 }
 
-.profile-box {
+.media {
   padding: 0.5em 1em;
   margin: 2em 0;
   font-weight: bold;
   color: #6091d3;/*文字色*/
   background: #FFF;
-  border: solid 1px #6091d3;/*線*/
-  border-radius: 10px;/*角の丸み*/
+  
 }
 
 .textarea {
@@ -119,16 +118,6 @@ p {
 
 .comment-position {
   text-align: center;
-}
-
-#search {
-  max-width:300px;
-  height:50px;
-  border-radius:2px;
-  outline:0;
-  margin-bottom:40px;
-  background:#eee;	
-  padding:0 10px;
 }
 
 .date-title {
@@ -213,4 +202,12 @@ p {
 
 .output-article-button {
   text-align: center;
+}
+
+.profile-box {
+  display: flex;
+}
+
+.comment{
+  display: flex;
 }

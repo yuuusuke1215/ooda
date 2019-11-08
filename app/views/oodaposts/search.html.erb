@@ -1,17 +1,26 @@
-<% @oodaposts.each do |oodapost| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto pt-3 pb-3">
-        <div class="post-preview">
-          <h2 class="post-title">
-            <%= link_to oodapost.title, oodapost_path(oodapost), :style=>"color:black;" %>
-          </h2>
-          <h3 class="post-subtitle">
-            <%= oodapost.observe[0..10] + "..." %>
-          </h3>
-          <%= link_to oodapost.user.name, user_path(oodapost.user) %> <span class="text-muted">posted at <%= oodapost.created_at %></span>
-       </div>
-     </div>
+<div class="main-wrapper">
+  <div class="main-container">
+    <div class="posts">
+      <h1 class="main-title mb-5">posts</h1>
+        <div class="row">
+          <% @oodaposts.each do |oodapost| %>
+           <div class="offset-lg-1 col-lg-5 post-list mb-5" ontouchstart>
+             <a class="post-item" href="/oodaposts/<%= oodapost.id %>">
+               <div class="post-item-side">
+                 <div class="post-item-image mr-2">
+                   <%= image_tag oodapost.image.url, class: "post-item-image-settings", width: "200px" if oodapost.image? %>
+                 </div>
+               </div>
+               <div class="post-item-main">
+                 <p class="post-item-main-title"><%= oodapost.title %></p>
+                 <p class="post-item-main_info">
+                   <span class="post-item-main_info-category"><%= oodapost.user.name %></span>
+                 </p>
+               </div>
+             </a>
+           </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
