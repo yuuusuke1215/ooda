@@ -211,3 +211,8 @@ p {
 .comment{
   display: flex;
 }
+
+.login-bottom-text {
+  text-align: center;
+  margin-top: 10px;
+}
