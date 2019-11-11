@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     
     if @comment.save
+      @oodapost.create_notification_comment!(current_user, @comment.id)
       flash[:success] = '無事にコメントできました。'
       redirect_back(fallback_location: root_path)
     else

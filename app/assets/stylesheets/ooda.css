@@ -216,3 +216,8 @@ p {
   text-align: center;
   margin-top: 10px;
 }
+
+.icon_mini {
+  width: 25px;
+  height: 25px;
+}

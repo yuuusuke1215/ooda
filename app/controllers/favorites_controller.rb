@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
   def create
     oodapost = Oodapost.find(params[:oodapost_id])
     current_user.favorite(oodapost)
+    oodapost.create_notification_like!(current_user)
     flash[:success] = 'お気に入りに登録しました。'
     redirect_back(fallback_location: root_path)
   end

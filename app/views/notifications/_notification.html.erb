@@ -1,0 +1,40 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class="col-md-6.mx-auto">
+  <div class="form-inline">
+    <span>
+      <%= link_to user_path(visitor) do %>
+        <img class="icon_mini" src="<%= gravatar_url(visitor, { size: 500 }) %>" alt="">
+        <strong><%= visitor.name %></strong>
+        <%= 'さんが' %>
+        <% case notification.action %>
+        <% when 'follow' then %>
+          <%= "あなたをフォローしました" %>
+        <% when 'like' then %>
+          <%= link_to 'あなたの投稿', notification.oodapost, style: "font-weight: bold;" %>
+          <%= "にいいねしました" %>
+        <% when 'comment' then %>
+          <% if notification.oodapost.user_id == visited.id %>
+            <%= link_to "あなたの投稿", notification.oodapost, style: "font-weight: bold;" %>
+          <% else %>
+            <span>
+              <%= link_to post_path(notification.post) do %>
+                <img class="icon_mini" src="<%= gravatar_url(visitor, { size: 500 }) %>" alt="">
+                <strong>
+                  <%= notification.oodapost.user.name + 'さんの投稿' %>
+                </strong>
+              <% end %>
+            </span>
+          <% end %>
+          <%= "にコメントしました" %>
+          <p class="text-muted.mb-0">
+            <%= Comment.find_by(id: notification.comment_id)&.content %>
+          </p>
+        <% end %>
+      <% end %>
+    </span>
+  </div>
+  <div class="small.text-muted.text-right">
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  </div>
+</div>
