@@ -58,7 +58,7 @@ gem 'pry-byebug', group: :development
 
 gem 'ransack'
 
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 1.3'
 
 gem 'kaminari'
 
